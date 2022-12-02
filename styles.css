@@ -34,6 +34,7 @@ img {
   margin-left: auto;
   margin-right: auto;
   border-radius: 25px;
+  transition: transform 250ms;
 }
 
 figure {
@@ -84,18 +85,43 @@ h1 {
   margin: 0;
   padding: 0;
   font-weight: 600;
+  line-height: 100%;
 }
 
 h2 {
   font-size: 3em;
   text-transform: uppercase;
   margin: 2em 1;
+  line-height: 80%;
 }
 
 p {
   margin: 0 0 1em 0;
 }
 
+.main {
+  position: relative;
+  text-decoration: none;
+}
+.mainTitle::before {
+  background-color: #434ca5;
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease-in-out;
+  z-index: -1;
+}
+.mainTitle:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.mainTitle::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
 
 
 
@@ -109,7 +135,15 @@ article {
   border-radius: 25px;
   background-color: #2e3364;
   box-shadow: 2px 2px 20px black ;
+  transition: transform 250ms, background-color 250ms;
 }
+
+article:hover {
+  transform: translateY(-10px);
+  background-color: #555da5;
+  border-color: rgb(0, 0, 0);
+}
+
 
 time {
   display: block;
